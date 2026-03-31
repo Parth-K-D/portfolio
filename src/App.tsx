@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import { 
   Rocket, 
@@ -32,7 +33,8 @@ import {
   PhoneCall,
   Linkedin
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
+
 
 // --- Types ---
 
@@ -626,6 +628,15 @@ export default function App() {
     filter === 'all' || item.category === filter
   );
 
+  const { scrollYProgress } = useScroll();
+  
+  // This maps the scroll from 0 to 1 to a background color shift
+  // Transitioning from your dark theme to a slightly deeper "space" black
+  const backgroundColor= useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    ["#0c1219", "#0c1219", "#0c1219"]
+  );
   // Scroll spy to update active section in bottom nav
   useEffect(() => {
     const handleScroll = () => {
@@ -650,11 +661,32 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background-dark text-white font-sans selection:bg-primary/30">
-      <div className="max-w-5xl mx-auto pb-24 relative bg-background-dark min-h-screen">
+    <motion.div 
+      style={{ backgroundColor }} // This binds the interactive color
+      className="min-h-screen text-white font-family selection:bg-primary/30 transition-colors duration-700"
+    >
+      {/* --- ADD FLOATING PARALLAX ELEMENTS HERE --- */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Subtle Blueprint Grid that moves slightly slower than the scroll */}
+        <motion.div 
+          style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
+          className="absolute inset-0 opacity-[0.03]"
+          style={{ 
+            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+            backgroundSize: '80px 80px'
+          }}
+        />
         
+        {/* A soft glowing orb that drifts up as you scroll down */}
+        <motion.div 
+          style={{ y: useTransform(scrollYProgress, [0, 1], [100, -300]) }}
+          className="absolute top-1/4 -right-20 size-96 bg-primary/10 blur-[120px] rounded-full"
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto pb-24 relative z-10 border-rounded"> 
         {/* Header */}
-        <header className="sticky top-0 z-50 bg-background-dark/80 backdrop-blur-md border-b border-gray-800/50 px-4 sm:px-8 py-4 flex items-center justify-between">
+        <header className="sticky top-0 z-50 bg-background-dark/90 backdrop-blur-md border-b border-gray-800/50 px-6 sm:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="size-10 rounded-full border-2 border-primary overflow-hidden shrink-0">
               <img 
@@ -687,7 +719,7 @@ export default function App() {
             ))}
           </nav>
 
-          <button className="bg-primary text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg shadow-primary/20 active:scale-95 transition-transform" onClick={() => window.open('https://drive.google.com/file/d/1q9PFceM42K-O89J8sjC73Su9W7bNMt1s/view?usp=sharing', '_blank')}>
+          <button className="bg-primary text-white px-4 py-2 rounded-lg text-s font-bold uppercase tracking-wider shadow-lg shadow-primary/20 active:scale-100 transition-transform hover:scale-105" onClick={() => window.open('https://drive.google.com/file/d/1q9PFceM42K-O89J8sjC73Su9W7bNMt1s/view?usp=sharing', '_blank')}>
             Resume
           </button>
         </header>
@@ -722,7 +754,7 @@ export default function App() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3 + idx * 0.1 }}
-                  className="text-[11px] text-gray-400 font-bold uppercase tracking-widest bg-gray-800/50 px-3 py-1.5 rounded-lg border border-gray-700/50"
+                  className="text-[11px] text-gray-400 font-bold uppercase tracking-widest bg-gray-800/50 px-3 py-1.5 rounded-lg border border-gray-700/50 hover:bg-primary/20 hover:scale-105 hover:border-primary/30 transition-all cursor-default"
                 >
                   {skill}
                 </motion.span>
@@ -747,7 +779,7 @@ export default function App() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 onClick={() => setSelectedProject(project)}
-                className="flex items-center gap-5 p-5 rounded-2xl bg-white/5 border border-gray-800/50 hover:border-primary/30 transition-all cursor-pointer group"
+                className="flex items-center gap-5 p-5 rounded-2xl bg-white/5 border border-gray-800/50 hover:border-primary/30 shadow-2xl shadow-black/60 transition-all cursor-pointer group"
               >
                 <div className="size-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary group-hover:scale-110 transition-transform">
                   <project.icon size={36} />
@@ -775,7 +807,7 @@ export default function App() {
                 transition={{ delay: idx * 0.1 }}
                 className="group flex flex-col gap-3 cursor-pointer"
               >
-                <div className="aspect-square w-full rounded-2xl overflow-hidden bg-gray-800 border border-gray-700 relative">
+                <div className="aspect-square w-full rounded-2xl overflow-hidden bg-gray-800 border border-gray-700 relative shadow-2xl shadow-black/60 group-hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-shadow duration-500">
                   <img 
                     src={model.imageUrl} 
                     alt={model.title} 
@@ -831,7 +863,7 @@ export default function App() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  className="flex flex-col group p-6 rounded-3xl bg-white/[0.02] border border-transparent hover:border-gray-800 hover:bg-white/[0.04] transition-all"
+                  className="flex flex-col group p-6 rounded-3xl bg-white/[0.02] border border-transparent transition-transform duration-700 hover:translate-y-[-10px] hover:border-gray-800 hover:bg-white/[0.04] transition-all"
                 >
                   <div className="flex justify-between items-start gap-4">
                     <h4 className="font-bold text-xl leading-tight group-hover:text-primary transition-colors">{item.title}</h4>
@@ -936,6 +968,6 @@ export default function App() {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 }
