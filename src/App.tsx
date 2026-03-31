@@ -243,7 +243,7 @@ const JOURNEY: JourneyItem[] = [
     category: 'leadership',
     points: [
       'Coordinated logistics for high-attendance campus events, ensuring seamless execution through collaboration with university departments.',
-      'Driven member engagement and brand awareness by executing strategic campaigns and managing event budgets to maximize growth.',
+      'Increased member engagement and brand awareness by executing strategic campaigns and managing event budgets to maximize growth.',
     ],
   },
 ];
@@ -261,6 +261,14 @@ const SectionHeader = ({ title }: { title: string }) => (
 const Carousel = ({ items }: { items: Model[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      paginate(1); // Moves to the next slide
+    }, 5000); // 5000ms = 5 seconds
+
+  return () => clearInterval(timer);
+  }, [currentIndex]);
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -351,123 +359,6 @@ const Carousel = ({ items }: { items: Model[] }) => {
   );
 };
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const validate = () => {
-    const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
-    }
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
-    return newErrors;
-  };
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-
-    setErrors({});
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({ name: '', email: '', message: '' });
-  };
-
-  if (isSuccess) {
-    return (
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="bg-primary/10 border border-primary/20 rounded-2xl p-8 text-center flex flex-col items-center gap-4"
-      >
-        <div className="size-16 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-          <CheckCircle2 size={40} />
-        </div>
-        <div>
-          <h4 className="text-xl font-bold">Message Sent!</h4>
-          <p className="text-[#92adc9] mt-2">Thank you for reaching out. I'll get back to you soon.</p>
-        </div>
-        <button 
-          onClick={() => setIsSuccess(false)}
-          className="mt-4 text-primary font-bold uppercase tracking-widest text-xs hover:underline"
-        >
-          Send another message
-        </button>
-      </motion.div>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div className="flex flex-col gap-1">
-        <label htmlFor="name" className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Name</label>
-        <input
-          id="name"
-          type="text"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className={`bg-gray-800/50 border ${errors.name ? 'border-red-500' : 'border-gray-700'} rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm`}
-          placeholder="Your Name"
-        />
-        {errors.name && <span className="text-[10px] text-red-500 ml-1">{errors.name}</span>}
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <label htmlFor="email" className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Email</label>
-        <input
-          id="email"
-          type="email"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className={`bg-gray-800/50 border ${errors.email ? 'border-red-500' : 'border-gray-700'} rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm`}
-          placeholder="your@email.com"
-        />
-        {errors.email && <span className="text-[10px] text-red-500 ml-1">{errors.email}</span>}
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <label htmlFor="message" className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Message</label>
-        <textarea
-          id="message"
-          rows={4}
-          value={formData.message}
-          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className={`bg-gray-800/50 border ${errors.message ? 'border-red-500' : 'border-gray-700'} rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm resize-none`}
-          placeholder="How can I help you?"
-        />
-        {errors.message && <span className="text-[10px] text-red-500 ml-1">{errors.message}</span>}
-      </div>
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="mt-2 bg-primary text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 hover:bg-primary/90 active:scale-95 transition-all disabled:opacity-50 disabled:pointer-events-none"
-      >
-        {isSubmitting ? 'Sending...' : (
-          <>
-            Send Message
-            <Send size={16} />
-          </>
-        )}
-      </button>
-    </form>
-  );
-};
 
 const ProjectDetail = ({ project, onBack }: { project: Project; onBack: () => void }) => {
   return (
@@ -600,14 +491,6 @@ const ProjectDetail = ({ project, onBack }: { project: Project; onBack: () => vo
               </div>
             </div>
 
-            {/* CTA Button */}
-            {/* <div className="mt-12">
-              <button className="w-full md:w-auto md:px-12 bg-primary text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 shadow-lg shadow-primary/20 active:scale-95 transition-all">
-                <FileText size={18} />
-                Download Full Report (PDF)
-              </button>
-            </div> */}
-
             {/* Footer */}
             <div className="mt-20 pt-8 border-t border-gray-800 text-center">
               <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.3em]">Engineering Archive © 2024</p>
@@ -669,12 +552,13 @@ export default function App() {
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         {/* Subtle Blueprint Grid that moves slightly slower than the scroll */}
         <motion.div 
-          style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
-          className="absolute inset-0 opacity-[0.03]"
           style={{ 
+            y: useTransform(scrollYProgress, [0, 1], [0, -100]),
             backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
             backgroundSize: '80px 80px'
-          }}
+           }}
+          className="absolute inset-0 opacity-[0.03]"
+
         />
         
         {/* A soft glowing orb that drifts up as you scroll down */}
@@ -706,7 +590,7 @@ export default function App() {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 bg-transparent">
+          {/* <nav className="hidden md:flex items-center gap-16 bg-transparent">
             {[
               { id: 'home', label: 'Home' },
               { id: 'projects', label: 'Projects' },
@@ -724,11 +608,13 @@ export default function App() {
                 {nav.label}
               </a>
             ))}
-          </nav>
-
-          <button className="bg-primary text-white px-4 py-2 rounded-3xl text-s font-bold uppercase tracking-wider active:scale-100 transition-transform hover:scale-105" onClick={() => window.open('src//K_Dubal_Parth_Resume_26_MAIN.pdf')}>
+          </nav> */}
+          <div className="flex-grow">
+          </div>
+          <button className="bg-primary text-white px-4 py-2 rounded-3xl text-s font-bold uppercase tracking-wider transition-transform hover:scale-105" onClick={() => window.open('src//K_Dubal_Parth_Resume_26_MAIN.pdf')}>
             Resume
           </button>
+          <div className='px-6'></div>
           <div className="size-10 rounded-full bg-white/5 flex items-center justify-center">
             <a href="https://www.linkedin.com/in/parthkdubal/" target="_blank" rel="noopener noreferrer">
               <Linkedin size={18} />
@@ -755,7 +641,7 @@ export default function App() {
               className="mt-8 border-l-2 border-primary pl-6"
             >
               <p className="text-[#92adc9] text-lg sm:text-xl font-normal leading-relaxed max-w-2xl">
-                Build what doesn’t exist yet—and make it fly.
+                Build what doesn’t exist yet - and make it fly.
               </p>
             </motion.div>
 
@@ -766,7 +652,7 @@ export default function App() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3 + idx * 0.1 }}
-                  className="text-[11px] text-gray-400 font-bold uppercase tracking-widest bg-gray-800/50 px-3 py-1.5 rounded-lg border border-gray-700/50 hover:bg-primary/20 hover:scale-105 hover:border-primary/30 transition-all cursor-default"
+                  className="text-[11px] text-gray-300 font-bold uppercase tracking-widest bg-gray-800/50 px-3 py-1.5 rounded-lg border border-gray-700/50 hover:bg-primary/20 hover:scale-105 hover:border-primary/30 transition-all cursor-default"
                 >
                   {skill}
                 </motion.span>
@@ -882,20 +768,20 @@ export default function App() {
                     <span className={`text-[9px] font-bold px-2.5 py-1 rounded-lg border uppercase shrink-0 ${
                       item.category === 'technical' 
                         ? 'text-primary bg-primary/10 border-primary/20' 
-                        : 'text-orange-400 bg-orange-400/10 border-orange-400/20'
+                        : 'text-purple-800 bg-purple-800/10 border-purple-800/20'
                     }`}>
                       {item.roleType}
                     </span>
                   </div>
-                  <p className="text-[#92adc9] text-xs mt-2 uppercase font-bold tracking-widest opacity-80">
+                  <p className="text-[#c7e0f2] text-xs mt-2 uppercase font-bold tracking-widest opacity-80">
                     {item.period} • {item.location}
                   </p>
                   <ul className="mt-5 space-y-3">
                     {item.points.map((point, i) => (
-                      <li key={i} className="text-gray-400 text-sm flex gap-4 leading-relaxed">
+                      <li key={i} className="text-gray-300 text-sm flex gap-4 leading-relaxed">
                         {item.category === 'technical' 
                           ? <Terminal size={16} className="text-primary shrink-0 mt-0.5" />
-                          : <Users size={16} className="text-orange-400 shrink-0 mt-0.5" />
+                          : <Users size={16} className="text-purple-800 shrink-0 mt-0.5" />
                         }
                         <span>{point}</span>
                       </li>
@@ -914,12 +800,9 @@ export default function App() {
             <div className="bg-white/5 border border-gray-800 rounded-[32px] p-8 sm:p-12">
               {/* <div className="grid md:grid-cols-2 gap-12"> */}
                 <div>
-                  <div className="size-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-                    <Mail size={32} />
-                  </div>
                   <h4 className="text-3xl font-bold mb-4">Let's build something incredible.</h4>
                   <p className="text-[#92adc9] text-lg leading-relaxed">
-                    I'm currently looking for new opportunities in aerospace engineering and propulsion systems. Whether you have a question or just want to say hi, my inbox is always open!
+                    I'm looking for opportunities in aerospace engineering and propulsion systems. Feel free to reach out to me!
                   </p>
                   <div className="mt-8 flex flex-col gap-4">
                     <div className="flex items-center gap-4 text-gray-400">
@@ -955,7 +838,7 @@ export default function App() {
         </section>
 
         {/* Bottom Navigation (Mobile Only) */}
-        <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-background-dark/95 backdrop-blur-md border-t border-gray-800 z-50">
+        {/* <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-background-dark/95 backdrop-blur-md border-t border-gray-800 z-50">
           <div className="flex justify-around items-center h-16 px-4">
             {[
               { id: 'home', label: 'Home', icon: Home },
@@ -976,7 +859,7 @@ export default function App() {
               </a>
             ))}
           </div>
-        </nav>
+        </nav> */}
 
         {/* Project Detail View */}
         <AnimatePresence>
