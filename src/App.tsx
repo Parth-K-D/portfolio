@@ -637,7 +637,7 @@ export default function App() {
         </div>
 
         {/* Engineering Projects */}
-        <section id="projects" className="scroll-mt-24 px-4 sm:px-8">
+        {/* <section id="projects" className="scroll-mt-24 px-4 sm:px-8">
           <SectionHeader title="Engineering Projects" />
           <div className="grid md:grid-cols-2 gap-4">
             {PROJECTS.map((project, idx) => (
@@ -661,7 +661,7 @@ export default function App() {
               </motion.div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* CAD Models */}
         <section id="cad-models" className="scroll-mt-24 px-4 sm:px-8">
