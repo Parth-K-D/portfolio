@@ -138,7 +138,7 @@ const MODELS: Model[] = [
     id: 'impeller',
     title: 'Centrifugal Impeller - Curved',
     subtitle: '3D MODEL • NX',
-    imageUrl: 'https://drive.google.com/file/d/1Cg60PgR-GAIJ5hVewhbJgtkaf6M4Naob/view?usp=sharing',  //ADD PIC
+    imageUrl: 'https://image2url.com/r2/default/images/1775000095392-d61580b2-478e-47a5-a628-3dfb4f16fa89.png',  //ADD PIC
     type: '3d',
   },
   {
