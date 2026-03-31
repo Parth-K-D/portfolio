@@ -686,20 +686,27 @@ export default function App() {
 
       <div className="max-w-6xl mx-auto pb-24 relative z-10 border-rounded"> 
         {/* Header */}
-        <header className="sticky top-0 z-50 bg-background-dark/90 backdrop-blur-md border-b border-gray-800/50 px-6 sm:px-8 py-4 flex items-center justify-between">
+        <header className="sticky top-0 z-50 bg-transparent backdrop-blur-xs px-6 sm:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="size-10 rounded-full border-2 border-primary overflow-hidden shrink-0">
+            {/* <div className="size-10 rounded-full border-2 border-primary overflow-hidden shrink-0">
               <img 
                 src="#"  //ADD PIC
                 alt="Parth K Dubal" 
                 className="w-full h-full object-cover"
               />
-            </div>
-            <h2 className="text-lg font-bold uppercase tracking-widest hidden sm:block">Portfolio</h2>
+            </div> */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-[32px] sm:text-[48px] lg:text-[56px] font-bold leading-[1.1] tracking-tight"
+            >
+              Parth K Dubal.
+              {/* <span className="text-primary">Aeronautical and Astronautical Engineering</span> at Purdue University. */}
+            </motion.h1>
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 bg-transparent">
             {[
               { id: 'home', label: 'Home' },
               { id: 'projects', label: 'Projects' },
@@ -710,7 +717,7 @@ export default function App() {
               <a 
                 key={nav.id}
                 href={`#${nav.id}`}
-                className={`text-xs font-bold uppercase tracking-widest transition-colors ${
+                className={`text-xs bg-transparent font-bold uppercase tracking-widest transition-colors ${
                   activeSection === nav.id ? 'text-primary' : 'text-[#92adc9] hover:text-white'
                 }`}
               >
@@ -719,9 +726,14 @@ export default function App() {
             ))}
           </nav>
 
-          <button className="bg-primary text-white px-4 py-2 rounded-lg text-s font-bold uppercase tracking-wider shadow-lg shadow-primary/20 active:scale-100 transition-transform hover:scale-105" onClick={() => window.open('https://drive.google.com/file/d/1q9PFceM42K-O89J8sjC73Su9W7bNMt1s/view?usp=sharing', '_blank')}>
+          <button className="bg-primary text-white px-4 py-2 rounded-lg text-s font-bold uppercase tracking-wider shadow-lg shadow-primary/20 active:scale-100 transition-transform hover:scale-105" onClick={() => window.open('src//K_Dubal_Parth_Resume_26_MAIN.pdf')}>
             Resume
           </button>
+          <div className="size-10 rounded-full bg-white/5 flex items-center justify-center">
+            <a href="https://www.linkedin.com/in/parthkdubal/" target="_blank" rel="noopener noreferrer">
+              <Linkedin size={18} />
+            </a>
+          </div>
         </header>
 
         {/* Hero Section */}
@@ -732,7 +744,7 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               className="text-[32px] sm:text-[48px] lg:text-[56px] font-bold leading-[1.1] tracking-tight"
             >
-              Parth K Dubal, <br />
+              {/* Parth K Dubal, <br /> */}
               <span className="text-primary">Aeronautical and Astronautical Engineering</span> at Purdue University.
             </motion.h1>
             
@@ -915,6 +927,14 @@ export default function App() {
                         <Mail size={18} />
                       </div>
                       <span className="text-sm font-medium">kdubalparth@gmail.com</span>
+                    </div>
+                  </div>
+                  <div className="mt-8 flex flex-col gap-4">
+                    <div className="flex items-center gap-4 text-gray-400">
+                      <div className="size-10 rounded-full bg-white/5 flex items-center justify-center">
+                        <Mail size={18} />
+                      </div>
+                      <span className="text-sm font-medium">pdubal@purdue.edu</span>
                     </div>
                   </div>
                   <a href="https://www.linkedin.com/in/parthkdubal" target="_blank" rel="noopener noreferrer">
