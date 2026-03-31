@@ -133,45 +133,45 @@ const PROJECTS: Project[] = [
 
 const MODELS: Model[] = [
   {
-    id: 'thrust',
-    title: 'Thrust Chamber V1',
+    id: 'impeller',
+    title: 'Centrifugal Impeller - Curved',
     subtitle: '3D MODEL • NX',
-    imageUrl: '#',  //ADD PIC
+    imageUrl: '../images/Portfolio/Centrifugal_curved.png',  //ADD PIC
     type: '3d',
   },
   {
-    id: 'wing-profile',
-    title: 'Wing Profile Sections',
-    subtitle: 'DRAWING • SOLIDWORKS',
-    imageUrl: '#',  //ADD PIC
-    type: 'drawing',
-  },
-  {
-    id: 'gimbal',
-    title: 'Engine Gimbal Assembly',
-    subtitle: '3D MODEL • FUSION 360',
-    imageUrl: '#',  //ADD PIC
-    type: '3d',
-  },
-  {
-    id: 'structural',
-    title: 'Structural Layout Map',
-    subtitle: 'DRAWING • AUTOCAD',
-    imageUrl: '#',  //ADD PIC
-    type: 'drawing',
-  },
-  {
-    id: 'structural',
-    title: 'Structural Layout Map',
+    id: 'gyroscope',
+    title: 'Gyroscope Rotor',
     subtitle: 'DRAWING • NX',
-    imageUrl: '#',  //ADD PIC
+    imageUrl: '../images/Portfolio/Drawings/gyro_rotor_drawing.png',  //ADD PIC
     type: 'drawing',
   },
   {
+    id: 'impeller',
+    title: 'Centrifugal Impeller - Splitters',
+    subtitle: '3D MODEL • NX',
+    imageUrl: '../images/Portfolio/Centrifugal_splitters.png',  //ADD PIC
+    type: '3d',
+  },
+  {
+    id: 'wheelrim',
+    title: 'Wheelrim',
+    subtitle: '3D MODEL • NX',
+    imageUrl: '../images/Portfolio/Wheelrim-iso.png',  //ADD PIC
+    type: '3d',
+  },
+  {
+    id: 'gyroscope',
+    title: 'Gyroscope',
+    subtitle: '3D MODEL • NX',
+    imageUrl: '../images/Portfolio/Gyroscope_assembly_pdubal_2.jpg',  //ADD PIC
+    type: '3d',
+  },
+  {
     id: 'structural',
-    title: 'Structural Layout Map',
-    subtitle: 'DRAWING • AUTOCAD',
-    imageUrl: '#',  //ADD PIC
+    title: 'Double Bearing Support',
+    subtitle: 'DRAWING • NX',
+    imageUrl: '../images/Portfolio/Drawings/doublebearing_assembly.png',  //ADD PIC
     type: 'drawing',
   },
 ];
@@ -797,7 +797,7 @@ export default function App() {
         {/* Gallery Carousel */}
         <section id="gallery" className="scroll-mt-24 px-4 sm:px-8">
           <SectionHeader title="Featured Gallery" />
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto" >
             <Carousel items={MODELS} />
           </div>
         </section>
