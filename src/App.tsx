@@ -142,38 +142,38 @@ const MODELS: Model[] = [
     type: '3d',
   },
   {
-    id: 'gyroscope',
-    title: 'Gyroscope Rotor',
-    subtitle: 'DRAWING • NX',
-    imageUrl: 'https://drive.google.com/file/d/12AHHvnJWrHJHcQXIKqI2MTX_AsgQRb9j/view?usp=sharing',  //ADD PIC
-    type: 'drawing',
-  },
-  {
     id: 'impeller',
     title: 'Centrifugal Impeller - Splitters',
     subtitle: '3D MODEL • NX',
-    imageUrl: 'https://drive.google.com/file/d/1BvCMX0XyVOe_rysDlmHIYjU6Buj3qrZv/view?usp=sharing',  //ADD PIC
+    imageUrl: 'https://image2url.com/r2/default/images/1775000287328-f8b9264f-add8-4e2b-a8e1-25c241ecff68.png',  //ADD PIC
     type: '3d',
   },
   {
     id: 'wheelrim',
     title: 'Wheelrim',
     subtitle: '3D MODEL • NX',
-    imageUrl: 'https://drive.google.com/file/d/1BesMYIboMgOOIeQ8di5t-Q9kyUfkM8lw/view?usp=drive_link',  //ADD PIC
+    imageUrl: 'https://image2url.com/r2/default/images/1775000372451-f02f1c4b-ddca-40ce-b724-406f2693147e.png',  //ADD PIC
     type: '3d',
   },
   {
     id: 'gyroscope',
     title: 'Gyroscope',
     subtitle: '3D MODEL • NX',
-    imageUrl: 'https://drive.google.com/file/d/1hOXAqIqRwFZuSEeuhPQ6EPBLD3BlhrBT/view?usp=sharing',  //ADD PIC
+    imageUrl: 'https://image2url.com/r2/default/images/1775000338352-44e5c2aa-389a-4752-955c-97bc4a11bac1.jpg',  //ADD PIC
     type: '3d',
   },
   {
     id: 'structural',
     title: 'Double Bearing Support',
     subtitle: 'DRAWING • NX',
-    imageUrl: 'https://drive.google.com/file/d/1t34dU1ZcFBs9E8P8cTMb-pz9b4d8VzkV/view?usp=sharing',  //ADD PIC
+    imageUrl: 'https://image2url.com/r2/default/images/1775000425593-2c51bc03-b89b-419f-a539-dc8354b9ee46.png',  //ADD PIC
+    type: 'drawing',
+  },
+  {
+    id: 'gyroscope',
+    title: 'Gyroscope Rotor',
+    subtitle: 'DRAWING • NX',
+    imageUrl: 'https://image2url.com/r2/default/images/1775000394548-09ed1bf3-5831-47c6-be1c-82ee2cf05a6c.png',  //ADD PIC
     type: 'drawing',
   },
 ];
