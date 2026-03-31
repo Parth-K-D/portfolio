@@ -582,7 +582,7 @@ export default function App() {
           </div>
           <div className="flex-grow">
           </div>
-          <button className="bg-primary text-white px-4 py-2 rounded-3xl text-s font-bold uppercase tracking-wider transition-transform hover:scale-105" onClick={() => window.open('https://drive.google.com/file/d/1Xo9n8sHj2l3Ztqjv0a9z5b6c7d8e9f/view?usp=sharing', '_blank')}>
+          <button className="bg-primary text-white px-4 py-2 rounded-3xl text-s font-bold uppercase tracking-wider transition-transform hover:scale-105" onClick={() => window.open('https://drive.google.com/file/d/1q9PFceM42K-O89J8sjC73Su9W7bNMt1s/view?usp=sharing', '_blank')}>
             Resume
           </button>
           <div className='px-6'></div>
