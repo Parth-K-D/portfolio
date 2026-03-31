@@ -136,42 +136,42 @@ const MODELS: Model[] = [
     id: 'impeller',
     title: 'Centrifugal Impeller - Curved',
     subtitle: '3D MODEL • NX',
-    imageUrl: '/public/Portfolio/Centrifugal_curved.png',  //ADD PIC
+    imageUrl: '/images/Portfolio/Centrifugal_curved.png',  //ADD PIC
     type: '3d',
   },
   {
     id: 'gyroscope',
     title: 'Gyroscope Rotor',
     subtitle: 'DRAWING • NX',
-    imageUrl: '/public/Portfolio/Drawings/gyro_rotor_drawing.png',  //ADD PIC
+    imageUrl: '/images/Portfolio/Drawings/gyro_rotor_drawing.png',  //ADD PIC
     type: 'drawing',
   },
   {
     id: 'impeller',
     title: 'Centrifugal Impeller - Splitters',
     subtitle: '3D MODEL • NX',
-    imageUrl: '/public/Portfolio/Centrifugal_splitters.png',  //ADD PIC
+    imageUrl: '/images/Portfolio/Centrifugal_splitters.png',  //ADD PIC
     type: '3d',
   },
   {
     id: 'wheelrim',
     title: 'Wheelrim',
     subtitle: '3D MODEL • NX',
-    imageUrl: '/public/Portfolio/Wheelrim-iso.png',  //ADD PIC
+    imageUrl: '/images/Portfolio/Wheelrim-iso.png',  //ADD PIC
     type: '3d',
   },
   {
     id: 'gyroscope',
     title: 'Gyroscope',
     subtitle: '3D MODEL • NX',
-    imageUrl: '/public/Portfolio/Gyroscope_assembly_pdubal_2.jpg',  //ADD PIC
+    imageUrl: '/images/Portfolio/Gyroscope_assembly_pdubal_2.jpg',  //ADD PIC
     type: '3d',
   },
   {
     id: 'structural',
     title: 'Double Bearing Support',
     subtitle: 'DRAWING • NX',
-    imageUrl: '/public/Portfolio/Drawings/doublebearing_assembly.png',  //ADD PIC
+    imageUrl: '/images/Portfolio/Drawings/doublebearing_assembly.png',  //ADD PIC
     type: 'drawing',
   },
 ];
