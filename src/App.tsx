@@ -570,7 +570,7 @@ export default function App() {
 
       <div className="max-w-6xl mx-auto pb-24 relative z-10 border-rounded"> 
         {/* Header */}
-        <header className="sticky top-0 z-50 bg-transparent px-6 sm:px-8 py-4 flex items-center justify-between">
+        <header className="sticky top-0 z-50 bg-transparent backdrop-blur-xs px-6 sm:px-8 py-4 flex items-center justify-between border-rounded">
           <div className="flex items-center gap-3">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
