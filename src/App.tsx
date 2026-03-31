@@ -570,45 +570,16 @@ export default function App() {
 
       <div className="max-w-6xl mx-auto pb-24 relative z-10 border-rounded"> 
         {/* Header */}
-        <header className="sticky top-0 z-50 bg-transparent backdrop-blur-xs px-6 sm:px-8 py-4 flex items-center justify-between">
+        <header className="sticky top-0 z-50 bg-transparent px-6 sm:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            {/* <div className="size-10 rounded-full border-2 border-primary overflow-hidden shrink-0">
-              <img 
-                src="#"  //ADD PIC
-                alt="Parth K Dubal" 
-                className="w-full h-full object-cover"
-              />
-            </div> */}
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-[32px] sm:text-[48px] lg:text-[56px] font-bold leading-[1.1] tracking-tight"
             >
               Parth K Dubal.
-              {/* <span className="text-primary">Aeronautical and Astronautical Engineering</span> at Purdue University. */}
             </motion.h1>
           </div>
-
-          {/* Desktop Nav */}
-          {/* <nav className="hidden md:flex items-center gap-16 bg-transparent">
-            {[
-              { id: 'home', label: 'Home' },
-              { id: 'projects', label: 'Projects' },
-              { id: 'gallery', label: 'Gallery' },
-              { id: 'experience', label: 'Journey' },
-              { id: 'contact', label: 'Contact' },
-            ].map((nav) => (
-              <a 
-                key={nav.id}
-                href={`#${nav.id}`}
-                className={`text-xs bg-transparent font-bold uppercase tracking-widest transition-colors ${
-                  activeSection === nav.id ? 'text-primary' : 'text-[#92adc9] hover:text-white'
-                }`}
-              >
-                {nav.label}
-              </a>
-            ))}
-          </nav> */}
           <div className="flex-grow">
           </div>
           <button className="bg-primary text-white px-4 py-2 rounded-3xl text-s font-bold uppercase tracking-wider transition-transform hover:scale-105" onClick={() => window.open('src//K_Dubal_Parth_Resume_26_MAIN.pdf')}>
@@ -836,31 +807,6 @@ export default function App() {
             </div>
           </div>
         </section>
-
-        {/* Bottom Navigation (Mobile Only) */}
-        {/* <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-background-dark/95 backdrop-blur-md border-t border-gray-800 z-50">
-          <div className="flex justify-around items-center h-16 px-4">
-            {[
-              { id: 'home', label: 'Home', icon: Home },
-              { id: 'projects', label: 'Projects', icon: Folder },
-              { id: 'gallery', label: 'Gallery', icon: Layout },
-              { id: 'experience', label: 'Journey', icon: Briefcase },
-              { id: 'contact', label: 'Contact', icon: Mail },
-            ].map((nav) => (
-              <a 
-                key={nav.id}
-                href={`#${nav.id}`}
-                className={`flex flex-col items-center gap-1 transition-colors ${
-                  activeSection === nav.id ? 'text-primary' : 'text-[#92adc9] hover:text-white'
-                }`}
-              >
-                <nav.icon size={20} />
-                <span className="text-[10px] font-bold uppercase tracking-wider">{nav.label}</span>
-              </a>
-            ))}
-          </div>
-        </nav> */}
-
         {/* Project Detail View */}
         <AnimatePresence>
           {selectedProject && (
