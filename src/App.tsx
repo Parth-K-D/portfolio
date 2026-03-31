@@ -171,7 +171,7 @@ const MODELS: Model[] = [
     id: 'structural',
     title: 'Double Bearing Support',
     subtitle: 'DRAWING • NX',
-    imageUrl: '/images/Portfolio/Drawings/doublebearing_assembly.png',  //ADD PIC
+    imageUrl: '/Portfolio/Drawings/doublebearing_assembly.png',  //ADD PIC
     type: 'drawing',
   },
 ];
