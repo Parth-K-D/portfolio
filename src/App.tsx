@@ -579,31 +579,29 @@ export default function App() {
             >
               Parth K Dubal.
             </motion.h1>
+          </div>
 
-          {/* Bottom Navigation (Mobile Only) */}
-        <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-background-dark/95 backdrop-blur-md border-t border-gray-800 z-50">
-          <div className="flex justify-around items-center h-16 px-4">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8">
             {[
-              { id: 'home', label: 'Home', icon: Home },
-              { id: 'projects', label: 'Projects', icon: Folder },
-              { id: 'gallery', label: 'Gallery', icon: Layout },
-              { id: 'experience', label: 'Journey', icon: Briefcase },
-              { id: 'contact', label: 'Contact', icon: Mail },
+              { id: 'home', label: 'Home' },
+              { id: 'projects', label: 'Projects' },
+              { id: 'gallery', label: 'Gallery' },
+              { id: 'experience', label: 'Journey' },
+              { id: 'contact', label: 'Contact' },
             ].map((nav) => (
               <a 
                 key={nav.id}
                 href={`#${nav.id}`}
-                className={`flex flex-col items-center gap-1 transition-colors ${
+                className={`text-xs font-bold uppercase tracking-widest transition-colors ${
                   activeSection === nav.id ? 'text-primary' : 'text-[#92adc9] hover:text-white'
                 }`}
               >
-                <nav.icon size={20} />
-                <span className="text-[10px] font-bold uppercase tracking-wider">{nav.label}</span>
+                {nav.label}
               </a>
             ))}
-          </div>
-        </nav>
-        
+          </nav>
+
           <button className="bg-primary text-white px-4 py-2 rounded-3xl text-s font-bold uppercase tracking-wider transition-transform hover:scale-105" onClick={() => window.open('https://drive.google.com/file/d/1q9PFceM42K-O89J8sjC73Su9W7bNMt1s/view?usp=sharing', '_blank')}>
             Resume
           </button>
