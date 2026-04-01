@@ -74,61 +74,65 @@ type JourneyItem = {
 
 const PROJECTS: Project[] = [
   {
-    id: 'naca-0012',
-    title: 'NACA 0012 Airfoil Analysis',
-    description: 'Comprehensive CFD investigation of transonic flow characteristics and shock wave formation on a symmetric airfoil. Focused on characterizing the lift-to-drag ratio across variable Mach regimes.',
+    id: 'mesh',
+    title: 'CFD Mesh Analysis in a long pipe in laminar and turbulent flow',
+    description: 'Comprehensive CFD investigation of different mesh types in a long pipe. Focused on comparing Sweep, Multi-zone and Tetrahedral meshes of a long pipe in laminar and turbulent flow scenarios.',
     icon: Plane,
     imageUrl: '#',  //ADD PIC
-    simulationId: 'CFD-0012-TX',
+    simulationId: 'CFD-MESH-001',
     specs: [
-      { label: 'MACH NUMBER', value: '0.75 - 1.2' },
-      { label: 'REYNOLDS NUMBER', value: '2.88 × 10⁶' },
+      { label: 'Inlet Velocity [Laminar]', value: '1 m/s' },
+      { label: 'Inlet Velocity [Turbulent]', value: '10 m/s' },
+      { label: 'REYNOLDS NUMBER [Laminar]', value: '2.88 × 10⁶' },
+      { label: 'REYNOLDS NUMBER [Turbulent]', value: '2.88 × 10⁶' },
       { label: 'SOLVER USED', value: 'ANSYS Fluent' },
-      { label: 'MESH DENSITY', value: '1.2M Cells' }
+      { label: 'MESH DENSITY', value: '150k - 900k Cells' }
     ],
     drawings: [
-      { title: 'ASSEMBLY VIEW', code: 'DWG-A101', imageUrl: 'https://picsum.photos/seed/dwg1/400/400' },
-      { title: 'CROSS-SECTION A-A', code: 'DWG-A102', imageUrl: 'https://picsum.photos/seed/dwg2/400/400' },
-      { title: 'STRUCTURAL WIREFRAME', code: 'DWG-S201', imageUrl: 'https://picsum.photos/seed/dwg3/400/400' },
-      { title: 'CONTROL SURFACE DETAIL', code: 'DWG-D304', imageUrl: 'https://picsum.photos/seed/dwg4/400/400' }
+      { title: 'Radial Velocity Profile (Laminar)', code: 'LAM-VEL', imageUrl: '/MeshAnalysis_Radial Velocity Profile_Laminar.png' },
+      { title: 'Radial Velocity Profile (Turbulent)', code: 'TURB-VEL', imageUrl: '/MeshAnalysis_Radial Velocity Profile_Turbulent.png' },
+      { title: 'Pressure Distribution (Laminar)', code: 'LAM-PRES', imageUrl: '/MeshAnalysis_Pressure Distribution_Laminar.png' },
+      { title: 'Pressure Distribution (Turbulent)', code: 'TURB-PRES', imageUrl: '/MeshAnalysis_Pressure Distribution_Turbulent.png' }
     ],
     methodology: [
-      'Generated high-fidelity C-mesh topology using Pointwise, ensuring Y+ < 1 for accurate boundary layer resolution.',
-      'Implemented Spalart-Allmaras turbulence model for robust convergence in transonic regimes.',
-      'Conducted grid independence study to validate numerical stability and spatial convergence.'
+      'Generated structured sweep, multi-zone, and unstructured tetrahedral meshes with varying densities for a 40m long pipe with 1m diameter for the laminar model.',
+      'Generated structured sweep and multi-zone meshes for the turbulent model, as tetrahedral meshes were unsuitable for high Reynolds number flows for a 16m long pipe with 0.2m diameter.',
+      'Simulated steady-state laminar and turbulent flow conditions using ANSYS Fluent, applying appropriate boundary conditions and turbulence models.',
+      'Analyzed velocity profiles and pressure distributions to evaluate mesh performance and accuracy against theoretical predictions for both flow regimes.',
+      'y+ values were assumed to 1 for the turbulent case to ensure proper near-wall resolution. This led to calculation of cell number nad cell hieght for the multi-zone meshes.'
     ],
     findings: [
-      'Identified critical Mach number at 0.72 before substantial wave drag increase.',
-      'Mapped shock wave migration toward trailing edge at supersonic speeds.'
+      'Multi-zone meshes provided superior accuracy in capturing velocity and pressure profiles compared to sweep meshes, especially in the turbulent flow scenario.',
+      'In laminar flow conditions, the sweep mesha and the multi-zone mesh produced similar results, while the tetrahedral mesh showed significant deviations from theoretical predictions.',
+      'In turbulent flow conditions, the sweep mesh struggled to capture the complex flow features accurately, while the multi-zone mesh closely matched theoretical expectations, demonstrating its suitability for high Reynolds number simulations.'
     ]
   },
   {
     id: 'heatsink',
     title: 'Modular Heatsink Rocket Engine',
-    description: 'Thermal management & structural integrity using SolidWorks & ANSYS. Focused on reusable propulsion systems for suborbital vehicles.',
+    description: 'Thermal management & structural integrity using Python & ANSYS. Focused on thermal analysis of a cylindrical chamber and compared results of different materials and conditions to output end firetime approximation before the material reaches its maximum operating temperature.',
     icon: Rocket,
-    imageUrl: 'https://picsum.photos/seed/rocket/800/600',
-    simulationId: 'PROP-HS-042',
+    imageUrl: '#',
+    simulationId: 'PROP-HS-THERM-002',
     specs: [
       { label: 'THRUST', value: '500N' },
-      { label: 'BURN TIME', value: '30s' },
-      { label: 'COOLING', value: 'Heatsink' },
-      { label: 'MATERIAL', value: 'Inconel 718' }
+      { label: 'PROPELLANT', value: 'LOx/RP1' },
+      { label: 'COOLING', value: 'Heatsink / Dump Cooling' },
+      { label: 'MATERIAL', value: 'Al 6061, Al 7075, SS 316, MidSteel, Copper C110' }
     ],
     drawings: [
-      { title: 'CHAMBER ASSEMBLY', code: 'DWG-C101', imageUrl: 'https://picsum.photos/seed/dwg5/400/400' },
-      { title: 'NOZZLE PROFILE', code: 'DWG-N102', imageUrl: 'https://picsum.photos/seed/dwg6/400/400' },
-      { title: 'INJECTOR PLATE', code: 'DWG-I201', imageUrl: 'https://picsum.photos/seed/dwg7/400/400' },
-      { title: 'THERMAL SENSORS', code: 'DWG-T304', imageUrl: 'https://picsum.photos/seed/dwg8/400/400' }
+      { title: 'OF vs Firetime', code: 'OF-FT', imageUrl: '#' },
+      { title: 'Chamber Profile', code: 'CMBR-MDL', imageUrl: '#' },
     ],
     methodology: [
-      'Optimized modular fin geometry for maximum heat dissipation during 30s steady-state burn.',
-      'Conducted transient thermal analysis to predict soak-back temperatures post-shutdown.',
-      'Validated structural safety factors under combined pressure and thermal loads.'
+      'Developed a python script to calculate the temperature convection from the gas to the chamber walls using Heat Equation in cylindrical coordinates with respect to time.',
+      'Calculated Convection Coefficient using Bartz Equation and Dittus-Boelter Equation for the turbulent case. The script iteratively calculated the temperature of inner chamber wall until the maximum temperature reached the material limit.',
+      'Optimized to take into account Water cooling, different propellant combinations, OF values, and different materials. The script also outputted the end firetime approximation before the material reaches its maximum operating temperature.'
     ],
     findings: [
-      'Achieved 15% reduction in peak chamber temperature via modular fin optimization.',
-      'Confirmed structural integrity under 10G launch acceleration profiles.'
+      'Copper C110 and Mid Steel showed the best thermal performance with end firetime approximations while Aluminum alloys had significantly lower end firetimes due to their lower thermal conductivity.',
+      'Water cooling significantly improved the thermal performance of all materials, with the most pronounced effect observed in aluminum alloys, increasing their end firetime by up to 100%.',
+      'The firetime was seen decrease with increasing OF ratio due to higher combustion temperatures, but the effect was less pronounced in materials with higher thermal conductivity, indicating that material selection is crucial for optimizing engine performance under varying operating conditions.'
     ]
   }
 ];
@@ -174,6 +178,13 @@ const MODELS: Model[] = [
     title: 'Gyroscope Rotor',
     subtitle: 'DRAWING • NX',
     imageUrl: '/gyro_rotor_drawing.png',
+    type: 'drawing',
+  },
+  {
+    id: 'wheelrim',
+    title: 'Wheelrim Flywheel Drawing',
+    subtitle: 'DRAWING • NX',
+    imageUrl: '/Flywheel_dwg.png',
     type: 'drawing',
   },
 ];
@@ -360,7 +371,11 @@ const Carousel = ({ items }: { items: Model[] }) => {
 };
 
 
-const ProjectDetail = ({ project, onBack }: { project: Project; onBack: () => void }) => {
+const ProjectDetail = ({ project, onBack, onExpand }: { 
+  project: Project; 
+  onBack: () => void; 
+  onExpand: (img: { title: string; imageUrl: string; subtitle?: string }) => void 
+  }) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -383,12 +398,13 @@ const ProjectDetail = ({ project, onBack }: { project: Project; onBack: () => vo
           </button>
         </header>
 
+
         {/* Hero Image */}
         <div className="relative w-full aspect-[4/3] md:aspect-video overflow-hidden">
           <img 
             src={project.imageUrl} 
             alt={project.title} 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform hover:scale-105 duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent" />
           <div className="absolute bottom-6 left-4 md:left-8">
@@ -396,6 +412,7 @@ const ProjectDetail = ({ project, onBack }: { project: Project; onBack: () => vo
               SIMULATION ID: {project.simulationId}
             </div>
           </div>
+
           {/* Decorative Sine Wave Overlay */}
           <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" viewBox="0 0 400 300">
             <path d="M0 150 Q 100 50, 200 150 T 400 150" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary" />
@@ -455,7 +472,15 @@ const ProjectDetail = ({ project, onBack }: { project: Project; onBack: () => vo
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     {project.drawings.map((drawing, i) => (
-                      <div key={i} className="group cursor-pointer">
+                      <div 
+                        key={i} 
+                        className="group cursor-pointer"
+                        onClick={() => onExpand({ 
+                          title: drawing.title, 
+                          imageUrl: drawing.imageUrl, 
+                          subtitle: `SHEET: ${drawing.code}` 
+                        })}
+                      >
                         <div className="aspect-square bg-gray-900 rounded-lg border border-gray-800 overflow-hidden relative mb-2">
                           {/* Blueprint Grid Background */}
                           <div className="absolute inset-0 opacity-10" style={{ 
@@ -506,6 +531,9 @@ export default function App() {
   const [filter, setFilter] = useState<'all' | 'technical' | 'leadership'>('all');
   const [activeSection, setActiveSection] = useState('home');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  // --- ADD THIS LINE ---
+  const [expandedModel, setExpandedModel] = useState<Model | { title: string; imageUrl: string; subtitle?: string } | null>(null);
 
   const filteredJourney = JOURNEY.filter(item => 
     filter === 'all' || item.category === filter
@@ -689,6 +717,9 @@ export default function App() {
             {MODELS.map((model, idx) => (
               <motion.div 
                 key={model.id}
+
+                onClick={() => setExpandedModel(model)}    // Set the clicked model as the expanded model
+
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -851,12 +882,55 @@ export default function App() {
           </div>
         </nav>
 
+        {/* Expanded Model View */}
+        <AnimatePresence>
+          {expandedModel && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setExpandedModel(null)}
+              className="fixed inset-0 z-[110] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setExpandedModel(null)}
+                  className="absolute -top-12 left-0 text-white/70 hover:text-white transition-colors"
+                >
+                  <ArrowLeft size={32} />
+                </button>
+
+                <img 
+                  src={expandedModel.imageUrl} 
+                  alt={expandedModel.title} 
+                  className="w-full h-full object-contain rounded-xl shadow-2xl shadow-primary/10 border border-white/10"
+                />
+                
+                <div className="mt-6 text-center">
+                  <h3 className="text-2xl font-bold text-white">{expandedModel.title}</h3>
+                  <p className="text-primary font-bold uppercase tracking-widest text-xs mt-2">
+                    {expandedModel.subtitle}
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        
         {/* Project Detail View */}
         <AnimatePresence>
           {selectedProject && (
             <ProjectDetail 
               project={selectedProject} 
               onBack={() => setSelectedProject(null)} 
+              onExpand={(img) => setExpandedModel(img as any)}
             />
           )}
         </AnimatePresence>
