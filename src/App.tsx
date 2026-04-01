@@ -159,7 +159,7 @@ const MODELS: Model[] = [
     id: 'gyroscope',
     title: 'Gyroscope',
     subtitle: '3D MODEL • NX',
-    imageUrl: '/Gyroscope_assembly_pdubal.jpg',
+    imageUrl: '/Gyroscope_assembly_pdubal_2.jpg',
     type: '3d',
   },
   {
