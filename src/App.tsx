@@ -826,20 +826,24 @@ export default function App() {
                     I'm looking for opportunities in aerospace engineering and propulsion systems. Feel free to reach out to me!
                   </p>
                   <div className="mt-8 flex flex-col gap-4">
+                    <a href="mailto:kdubalparth@gmail.com" className="flex items-center gap-4 text-gray-400 hover:text-primary transition-colors cursor-pointer group w-fit">
                     <div className="flex items-center gap-4 text-gray-400">
                       <div className="size-10 rounded-full bg-white/5 flex items-center justify-center">
                         <Mail size={18} />
                       </div>
-                      <span className="text-sm font-medium">kdubalparth@gmail.com</span>
+                      <span className="text-sm font-medium hover:text-primary transition-colors cursor-pointer group w-fit">kdubalparth@gmail.com</span>
                     </div>
+                    </a>
                   </div>
                   <div className="mt-8 flex flex-col gap-4">
+                    <a href="mailto:kdubalparth@gmail.com" className="flex items-center gap-4 text-gray-400 hover:text-primary transition-colors cursor-pointer group w-fit">
                     <div className="flex items-center gap-4 text-gray-400">
                       <div className="size-10 rounded-full bg-white/5 flex items-center justify-center">
                         <Mail size={18} />
                       </div>
-                      <span className="text-sm font-medium">pdubal@purdue.edu</span>
+                      <span className="text-sm font-medium hover:text-primary transition-colors cursor-pointer group w-fit">pdubal@purdue.edu</span>
                     </div>
+                    </a>
                   </div>
                   <a href="https://www.linkedin.com/in/parthkdubal" target="_blank" rel="noopener noreferrer">
                   <div className="mt-8 flex flex-col gap-4">
