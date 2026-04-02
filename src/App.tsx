@@ -122,7 +122,7 @@ const PROJECTS: Project[] = [
     ],
     drawings: [
       { title: 'OF vs Firetime', code: 'OF-FT', imageUrl: '#' },
-      { title: 'Chamber Profile', code: 'CMBR-MDL', imageUrl: '#' },
+      { title: 'Material Comparison', code: 'CMBR-MTRL', imageUrl: '/Properties_Comparison.png' },
     ],
     methodology: [
       'Developed a python script to calculate the temperature convection from the gas to the chamber walls using Heat Equation in cylindrical coordinates with respect to time.',
@@ -132,7 +132,8 @@ const PROJECTS: Project[] = [
     findings: [
       'Copper C110 and Mid Steel showed the best thermal performance with end firetime approximations while Aluminum alloys had significantly lower end firetimes due to their lower thermal conductivity.',
       'Water cooling significantly improved the thermal performance of all materials, with the most pronounced effect observed in aluminum alloys, increasing their end firetime by up to 100%.',
-      'The firetime was seen decrease with increasing OF ratio due to higher combustion temperatures, but the effect was less pronounced in materials with higher thermal conductivity, indicating that material selection is crucial for optimizing engine performance under varying operating conditions.'
+      'The firetime was seen decrease with increasing OF ratio due to higher combustion temperatures, but the effect was less pronounced in materials with higher thermal conductivity, indicating that material selection is crucial for optimizing engine performance under varying operating conditions.',
+      'However, at the end, Aluminum 6061 was selected for the prototype due to its favorable balance of thermal performance, weight, and manufacturability. The use of water cooling further mitigated the thermal limitations of aluminum, making it a viable choice for the modular heatsink rocket engine design.'
     ]
   }
 ];
@@ -218,10 +219,10 @@ const JOURNEY: JourneyItem[] = [
   },
   {
     id: 'sec',
-    title: 'Student Engineering Council',
+    title: 'Aeronautical & Astronautical Engineering Student Council (AAESAC)',
     role: 'Member',
     roleType: 'Member',
-    period: 'Jan 2024 – Present',
+    period: 'Aug 2025 – Present',
     location: 'West Lafayette, IN',
     category: 'leadership',
     points: [
@@ -232,7 +233,7 @@ const JOURNEY: JourneyItem[] = [
   },
   {
     id: 'mml',
-    title: 'Materials & Manufacturing Lab',
+    title: 'Materials & Manufacturing Research Laboratories (MMRL)',
     role: 'Apprentice',
     roleType: 'Apprentice',
     period: 'Dec 2025 – Present',
@@ -249,7 +250,7 @@ const JOURNEY: JourneyItem[] = [
     title: 'PURPL - Event Coordinator Associate',
     role: 'Event Coordinator Associate',
     roleType: 'Associate',
-    period: 'Aug 2023 – May 2024',
+    period: 'Jan 2026 – Present',
     location: 'West Lafayette, IN',
     category: 'leadership',
     points: [
@@ -748,7 +749,7 @@ export default function App() {
         {/* Gallery Carousel */}
         <section id="gallery" className="scroll-mt-24 px-4 sm:px-8">
           <SectionHeader title="Featured Gallery" />
-          <div className="max-w-4xl mx-auto" >
+          <div className= "max-w-4xl mx-auto" >
             <Carousel items={MODELS} />
           </div>
         </section>
