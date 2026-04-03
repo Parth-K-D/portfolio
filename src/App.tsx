@@ -631,7 +631,7 @@ export default function App() {
             ))}
           </nav>
 
-          <button className="bg-primary text-white px-4 py-2 rounded-3xl text-s font-bold uppercase tracking-wider transition-transform hover:scale-105" onClick={() => window.open('https://drive.google.com/file/d/1q9PFceM42K-O89J8sjC73Su9W7bNMt1s/view?usp=sharing', '_blank')}>
+          <button className="bg-primary text-white px-4 py-2 rounded-3xl text-s font-bold uppercase tracking-wider transition-transform hover:scale-105" onClick={() => window.open('/K_Dubal_Parth_Resume_26_MAIN.pdf', '_blank')}>
             Resume
           </button>
           <div className="size-10 rounded-full bg-white/5 flex items-center justify-center">
