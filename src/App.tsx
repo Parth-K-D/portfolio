@@ -89,10 +89,10 @@ const PROJECTS: Project[] = [
       { label: 'MESH DENSITY', value: '150k - 900k Cells' }
     ],
     drawings: [
-      { title: 'Radial Velocity Profile (Laminar)', code: 'LAM-VEL', imageUrl: '/MeshAnalysis_Radial Velocity Profile_Laminar.png' },
-      { title: 'Radial Velocity Profile (Turbulent)', code: 'TURB-VEL', imageUrl: '/MeshAnalysis_Radial Velocity Profile_Turbulent.png' },
-      { title: 'Pressure Distribution (Laminar)', code: 'LAM-PRES', imageUrl: '/MeshAnalysis_Pressure Distribution_Laminar.png' },
-      { title: 'Pressure Distribution (Turbulent)', code: 'TURB-PRES', imageUrl: '/MeshAnalysis_Pressure Distribution_Turbulent.png' }
+      { title: 'Radial Velocity Profile (Laminar)', code: 'LAM-VEL', imageUrl: '/MeshAnalysis_Radial Velocity Profile_Laminar.png' }
+      // { title: 'Radial Velocity Profile (Turbulent)', code: 'TURB-VEL', imageUrl: '/MeshAnalysis_Radial Velocity Profile_Turbulent.png' },
+      // { title: 'Pressure Distribution (Laminar)', code: 'LAM-PRES', imageUrl: '/MeshAnalysis_Pressure Distribution_Laminar.png' },
+      // { title: 'Pressure Distribution (Turbulent)', code: 'TURB-PRES', imageUrl: '/MeshAnalysis_Pressure Distribution_Turbulent.png' }
     ],
     methodology: [
       'Generated structured sweep, multi-zone, and unstructured tetrahedral meshes with varying densities for a 40m long pipe with 1m diameter for the laminar model.',
@@ -121,7 +121,7 @@ const PROJECTS: Project[] = [
       { label: 'MATERIAL', value: 'Al 6061, Al 7075, SS 316, MidSteel, Copper C110' }
     ],
     drawings: [
-      { title: 'OF vs Firetime', code: 'OF-FT', imageUrl: '#' },
+      // { title: 'OF vs Firetime', code: 'OF-FT', imageUrl: '#' },
       { title: 'Material Comparison', code: 'CMBR-MTRL', imageUrl: '/Properties_Comparison.png' },
     ],
     methodology: [
