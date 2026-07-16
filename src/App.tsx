@@ -63,7 +63,7 @@ type JourneyItem = {
   id: string;
   title: string;
   role: string;
-  roleType: 'Engineer' | 'Researcher' | 'Member' | 'Apprentice' | 'Associate';
+  roleType: 'Engineer' | 'Researcher' | 'Member' | 'Apprentice' | 'Associate' | 'Intern';
   period: string;
   location: string;
   category: 'technical' | 'leadership';
@@ -220,7 +220,7 @@ const JOURNEY: JourneyItem[] = [
   {
     id: 'sec',
     title: 'Aeronautical & Astronautical Engineering Student Council (AAESAC)',
-    role: 'Member',
+    role: 'Career Lead',
     roleType: 'Member',
     period: 'Aug 2025 – Present',
     location: 'West Lafayette, IN',
@@ -250,12 +250,27 @@ const JOURNEY: JourneyItem[] = [
     title: 'PURPL - Event Coordinator Associate',
     role: 'Event Coordinator Associate',
     roleType: 'Associate',
-    period: 'Jan 2026 – Present',
+    period: 'Jan 2026 – May 2026',
     location: 'West Lafayette, IN',
     category: 'leadership',
     points: [
       'Coordinated logistics for high-attendance campus events, ensuring seamless execution through collaboration with university departments.',
       'Increased member engagement and brand awareness by executing strategic campaigns and managing event budgets to maximize growth.',
+    ],
+  },
+  {
+    id: 'tarkx',
+    title: 'TarkX Defence Systems - Indian Navy',
+    role: 'Intern',
+    roleType: 'Intern',
+    period: 'May 2026 – Aug 2026',
+    location: 'Bangalore, India',
+    category: 'technical',
+    points: [
+      'Developed an analytical thermal model of a diffuser nozzle using Python, verifying results against ANSYS Thermal to ensure structural integrity under high-temperature gradients.',
+      'Conducted a comprehensive literature review to down-select the optimal Thrust Vector Control (TVC) configuration adhering to rigid space, mass, and operational constraints.',
+      'Designed the complete TVC mechanical assembly and executed transient ANSYS CFD simulations to evaluate true thrust vectoring performance, off-axis side forces, and fluid-structure interactions.',
+      'Compiled a detailed Bill of Materials (BOM) by calculating requirements, sourcing, and sizing flight-grade actuators, high-torque motors, and structural hardware.'
     ],
   },
 ];
@@ -792,7 +807,7 @@ export default function App() {
                         ? 'text-primary bg-primary/10 border-primary/20' 
                         : 'text-purple-800 bg-purple-800/10 border-purple-800/20'
                     }`}>
-                      {item.roleType}
+                      {item.role}
                     </span>
                   </div>
                   <p className="text-[#c7e0f2] text-xs mt-2 uppercase font-bold tracking-widest opacity-80">
