@@ -243,6 +243,7 @@ const JOURNEY: JourneyItem[] = [
     location: 'West Lafayette, IN',
     category: 'technical',
     points: [
+      'Authored rigorous Standard Operating Procedures (SOPs) and Non-Conformance Report (NCR) protocols targeting ISO 9001 quality standardization across lab hardware.',
       'Trained on operational procedures for Powder and Wire Feed Directed Energy Deposition systems and 5-axis CNC machines.',
       'Assisted in machine setup, calibration, and parameter selection for additive and subtractive manufacturing processes.',
       'Developed working knowledge of equipment capabilities, operability constraints, and post-processing workflows.',
