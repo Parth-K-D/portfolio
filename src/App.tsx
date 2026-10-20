@@ -200,8 +200,10 @@ const JOURNEY: JourneyItem[] = [
     location: 'West Lafayette, IN',
     category: 'technical',
     points: [
-      'Modular heatsink rocket engine architecture development',
-      'Secondary Injection Thrust Vectoring Control research',
+      'Engineered a 1-D transient thermal solver in Python using the Bartz equation to validate a ~15s max burn limit and structural survival for a 500 lbf modular heatsink engine.',
+      'Coupled finite-difference thermal code with NASA CEA/RocketCEA to assess combustion products, gas properties, and radial heat soak-back across high-temperature material alloys.',
+      'Investigated Secondary Injection Thrust Vector Control (SITVC) gas dynamics, examining oblique shock interactions and boundary layer separation in supersonic nozzle flow.',
+      'Built parametric Python simulation scripts correlating secondary fluid injection angles, port locations, and pressures with resultant side force and thrust deflection.'
     ],
   },
   {
@@ -213,8 +215,9 @@ const JOURNEY: JourneyItem[] = [
     location: 'West Lafayette, IN',
     category: 'technical',
     points: [
-      'Modeled structural components using SolidWorks and Fusion 360',
-      'Optimized CFD parameters improving top speed by 33%',
+      'Designed and integrated an autonomous mechanical payload deployment system for rapid, targeted delivery of Narcan during emergency opioid overdose scenarios.',
+      'Modeled aerodynamic airframe geometries and fairings in SolidWorks and Fusion 360, minimizing parasite drag to boost maximum cruise velocity by 33% (45 to 60 mph).',
+      'Synthesized rigorous payload testing protocols and telemetry logs, winning the 1st Place Data Stewardship Award at the 2025 Spring Undergraduate Research Conference.'
     ],
   },
   {
@@ -271,6 +274,21 @@ const JOURNEY: JourneyItem[] = [
       'Conducted a comprehensive literature review to down-select the optimal Thrust Vector Control (TVC) configuration adhering to rigid space, mass, and operational constraints.',
       'Designed the complete TVC mechanical assembly and executed transient ANSYS CFD simulations to evaluate true thrust vectoring performance, off-axis side forces, and fluid-structure interactions.',
       'Compiled a detailed Bill of Materials (BOM) by calculating requirements, sourcing, and sizing flight-grade actuators, high-torque motors, and structural hardware.'
+    ],
+  },
+  {
+    id: 'flightzero',
+    title: 'Flight Zero at Purdue',
+    role: 'Engineer',
+    roleType: 'Engineer',
+    period: 'Aug 2026 – Present',
+    location: 'West Lafayette, IN',
+    category: 'technical',
+    points: [
+      'Developed conceptual sizing scripts in Python to evaluate Maximum Takeoff Weight (MTOW) build-up and segment energy budgets for an autonomous, nature-inspired UAV.',
+      'Conducted longitudinal trim drag analysis and stability derivative estimations to minimize cruise drag and expand operational flight boundaries.',
+      'Scripted aerodynamic load distribution models in MATLAB to generate shear force and bending moment envelopes across the wing, fuselage, and tail.',
+      'Engineered MATLAB solvers for empennage control surface sizing (elevator/rudder) and thin-walled structural boom idealization for downstream stress analysis.'
     ],
   },
 ];
