@@ -695,6 +695,9 @@ export default function App() {
               <p className="text-[#92adc9] text-lg sm:text-xl font-normal leading-relaxed max-w-2xl">
                 Build what doesn’t exist yet - and make it fly.
               </p>
+              <p className="text-[#92adc9] text-lg sm:text-xl font-normal leading-relaxed max-w-2xl">
+                Currently in a deep dive into Compressible flow and turbomachinery (Solely out of curiosity)
+              </p>
             </motion.div>
 
             <div className="mt-8 flex flex-wrap gap-3 pl-6">
